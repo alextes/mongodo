@@ -2,15 +2,13 @@ const mongoose = require('mongoose');
 const User = require('./model/user');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/arnas');
+mongoose.connect('mongodb://localhost/mongodo');
 const db = mongoose.connection;
-const userID = '58efe28fba7be2a8985a917f';
 
 function changeGrade() {
-  return User.findById(userID).exec()
+  return User.findById('59355ec627539c3ba639a61c').exec()
     .then((alex) => {
       console.log(alex);
-      // const geology = alex.lessons.find(lesson => lesson.id === lessonID);
       return alex.save();
     });
 }

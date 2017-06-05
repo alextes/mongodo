@@ -8,19 +8,21 @@ const db = mongoose.connection;
 
 
 function seed() {
-  const geology = new Lesson({ name: 'geology', grade: 5 });
-  const physics = new Lesson({ name: 'physics', grade: 8 });
+  const geology = new Lesson({ name: 'geology' });
+  const physics = new Lesson({ name: 'physics' });
+  const buddha = new User({ name: 'buddha' });
   return Promise.all([geology.save(), physics.save()])
     .then((lessons) => {
       const alex = new User({
         name: 'alex',
-        lessons: [{
+        grades: [{
           grade: 4,
           lesson: lessons[0]._id,
         }, {
           grade: 8,
           lesson: lessons[1]._id,
         }],
+        friends: [buddha],
       });
       return alex.save();
     })

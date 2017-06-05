@@ -5,11 +5,12 @@ const { ObjectId } = Schema.Types;
 
 module.exports = new Schema({
   name: { type: String, required: true },
-  lessons: [{
+  grades: [{
     grade: { type: Number, required: true },
     lesson: {
       ref: 'Lesson',
       type: ObjectId,
     },
   }],
+  friends: [{ ref: 'User', type: ObjectId }],
 });
