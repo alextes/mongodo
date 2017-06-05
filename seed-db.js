@@ -11,7 +11,7 @@ function seed() {
   const geology = new Lesson({ name: 'geology' });
   const physics = new Lesson({ name: 'physics' });
   const buddha = new User({ name: 'buddha' });
-  return Promise.all([geology.save(), physics.save()])
+  return Promise.all([geology.save(), physics.save(), buddha.save()])
     .then((lessons) => {
       const alex = new User({
         name: 'alex',

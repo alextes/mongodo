@@ -6,7 +6,10 @@ mongoose.connect('mongodb://localhost/mongodo');
 const db = mongoose.connection;
 
 function changeGrade() {
-  return User.findById('59355ec627539c3ba639a61c').exec()
+  return User
+    .findById('593561d9b9a50285e0303adb')
+    .populate('friends')
+    .exec()
     .then((alex) => {
       console.log(alex);
       return alex.save();
